@@ -1,0 +1,62 @@
+feature_cols:
+- hour
+- weekday
+- is_weekend
+- sin_hour
+- cos_hour
+- sin_dow
+- cos_dow
+- outside_temp_c
+- cooling_degree_c
+- occupancy
+- room_count
+- occ_per_room
+- day_type_regular
+- day_type_exam
+- day_type_holiday
+- lag_1
+- lag_24
+- lag_168
+- rolling_mean_6h
+- rolling_std_6h
+- rolling_mean_24h
+- rolling_std_24h
+- rolling_mean_168h
+lead_gap:
+  domain_observations: Commercial LEAD 1.0 displays strict weekday 08:00-18:00 HVAC
+    schedules with predictable weekend troughs. Hostel living exhibits decentralized,
+    student-driven night owl hours, exam study surges (00:00-04:00), and unauthorized
+    heating appliances requiring occupancy and calendar context to avoid high false
+    alarms.
+  lead_f1: 0.729
+  lead_precision: 0.574
+  lead_recall: 1.0
+  lead_test_hours: 1080
+m2_meta:
+  feature_importances:
+    cooling_degree_c: 0
+    cos_dow: 4
+    cos_hour: 400
+    day_type_exam: 39
+    day_type_holiday: 0
+    day_type_regular: 34
+    hour: 491
+    is_weekend: 0
+    lag_1: 436
+    lag_168: 701
+    lag_24: 847
+    occ_per_room: 231
+    occupancy: 915
+    outside_temp_c: 436
+    rolling_mean_168h: 267
+    rolling_mean_24h: 114
+    rolling_mean_6h: 120
+    rolling_std_24h: 125
+    rolling_std_6h: 195
+    room_count: 141
+    sin_dow: 86
+    sin_hour: 141
+    weekday: 277
+  test_mae: 0.4233008137481893
+  threshold: 0.9628639562488441
+  train_mae: 0.3434503630144145

@@ -1,0 +1,1 @@
+"""HostelWatt source package."""

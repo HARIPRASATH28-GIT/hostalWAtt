@@ -1,0 +1,89 @@
+alerts:
+  cooldown_hours: 4
+  dedupe_window_hours: 3
+  escalation_hours: 6
+appliances:
+  ceiling_fan_kw: 0.075
+  electric_kettle_kw: 1.35
+  laptop_kw: 0.065
+  room_heater_kw: 1.5
+  tolerance_ratio: 0.12
+  water_heater_kw: 1.8
+blocks:
+- base_kw: 14.0
+  base_occupancy: 144
+  has_submeters: true
+  id: Block_A
+  name: Block A (Senior Boys)
+  noise_sigma: 0.4
+  room_count: 72
+- base_kw: 15.5
+  base_occupancy: 160
+  has_submeters: false
+  id: Block_B
+  name: Block B (Junior Boys)
+  noise_sigma: 0.45
+  room_count: 80
+- base_kw: 13.0
+  base_occupancy: 128
+  has_submeters: false
+  id: Block_C
+  name: Block C (Girls Block 1)
+  noise_sigma: 0.35
+  room_count: 64
+- base_kw: 12.8
+  base_occupancy: 128
+  has_submeters: false
+  id: Block_D
+  name: Block D (Girls Block 2)
+  noise_sigma: 0.35
+  room_count: 64
+- base_kw: 11.5
+  base_occupancy: 48
+  has_submeters: false
+  id: Block_E
+  name: Block E (PG & Research Scholars)
+  noise_sigma: 0.3
+  room_count: 48
+demo_block:
+  block_id: Block_A
+  floors: 3
+  rooms_per_floor: 8
+monitoring:
+  active_interval_seconds: 60
+  anomaly_residual_threshold_kw: 1.8
+  auto_refresh_seconds: 15
+  auto_start: true
+  database_path: data/monitoring.db
+  demo_interval_seconds: 60
+  display_label: '[SIMULATED METER FEED]'
+  mode: demo
+  prod_interval_seconds: 3600
+  source_label: SIMULATED
+  tariff_rate_inr: 7.5
+synthetic:
+  anomaly_rate_max: 0.04
+  anomaly_rate_min: 0.015
+  num_hours: 8760
+  start_date: '2025-01-01 00:00:00'
+system:
+  data_dir: data
+  database_path: data/alerts.db
+  processed_dir: data/processed
+  project_name: HostelWatt
+  raw_dir: data/raw
+  seed: 42
+  synthetic_dir: data/synthetic
+  timezone: Asia/Kolkata
+tariff:
+  citation: TNERC Comprehensive Tariff Order - LT Tariff II-B (Educational Institutions,
+    Hostels)
+  demand_charge_inr_per_kva_per_month: 350.0
+  energy_rate_inr_per_kwh: 7.5
+  power_factor: 0.9
+thresholds:
+  isolation_forest_contamination: 0.03
+  lgbm_residual_quantile: 0.97
+  md_warning_percent: 90.0
+  rolling_k_sigma: 2.8
+  seasonal_mad_multiplier: 3.2
